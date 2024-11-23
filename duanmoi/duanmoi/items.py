@@ -12,11 +12,14 @@ class DuanmoiItem(scrapy.Item):
     trangthai = scrapy.Field()
     daodien = scrapy.Field()
     thoiluong = scrapy.Field()
-    sotap = scrapy.Field()
+    # sotap = scrapy.Field()
     ngonngu = scrapy.Field() # add new
     namsx = scrapy.Field() # add new
     quocgia = scrapy.Field() # add new
     theloai = scrapy.Field() # add new
     mota = scrapy.Field() # add new
     courseUrl = scrapy.Field() # add new
+    danhgia = scrapy.Field()
+    chatluong = scrapy.Field()
+    luotxem = scrapy.Field()
     pass

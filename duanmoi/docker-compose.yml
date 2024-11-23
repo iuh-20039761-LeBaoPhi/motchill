@@ -1,17 +1,15 @@
 version: "3.8"
-
 services:
   db:
-    image: postgres:latest
-    restart: always
+    image: postgres
+    container_name: motchillPG_CK
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: dbmotchillPG
-      ports:
-        - "5432:5432"
+      POSTGRES_DB: dbmotchillCK
+    ports:
+      - "5432:5432" # Đảm bảo là chuỗi, bao gồm dấu ngoặc kép
     volumes:
-      - postgres_data:/var/lib/postgresql/data # Giúp lưu trữ dữ liệu
-
+      - pgdata:/var/lib/postgresql/data
 volumes:
-  postgres_data:
+  pgdata:

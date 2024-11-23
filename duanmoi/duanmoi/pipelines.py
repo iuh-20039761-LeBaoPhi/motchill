@@ -20,11 +20,11 @@ class MongoDBDuanmoiPipeline:
         self.connect_uri = os.environ.get('Mongo_HOST', 'mongodb://localhost:27017')  # Sử dụng biến môi trường nếu có
         # Tạo kết nối tới MongoDB
         self.client = pymongo.MongoClient(self.connect_uri)
-        self.db = self.client['dbduanmoi']  # Tạo Database
+        self.db = self.client['dbmotchill']  # Tạo Database
         pass
     
     def process_item(self, item, spider):
-        collection = self.db['tbmotchill']  # Tạo Collection hoặc Table
+        collection = self.db['tblmotchill']  # Tạo Collection hoặc Table
         try:
             collection.insert_one(dict(item))
             return item
@@ -52,12 +52,16 @@ class CSVDBDuanmoiPipeline:
                 item['trangthai'],
                 item['daodien'],
                 item['thoiluong'],
-                item['sotap'],
+     
                 item['ngonngu'],
                 item['namsx'],
                 item['quocgia'],
                 item['theloai'],
                 item['mota'],
+
+                item['danhgia'],
+                item['chatluong'],
+                item['luotxem'],
                 item['courseUrl']
             ])
         return item
